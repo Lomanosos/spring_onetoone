@@ -11,17 +11,17 @@ public class User {
    @GeneratedValue(strategy = GenerationType.IDENTITY)
    private Long id;
 
-   @Column
+   @Column(name = "name")
    private String firstName;
 
-   @Column
+   @Column(name = "last_name")
    private String lastName;
 
-   @Column
+   @Column(name = "email")
    private String email;
 
    @OneToOne
-   @JoinColumn
+   @JoinColumn(name = "id")
    @MapsId
    private Car car;
 

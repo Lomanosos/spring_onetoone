@@ -42,9 +42,10 @@ public class AppConfig {
       factoryBean.setDataSource(getDataSource());
       
       Properties props=new Properties();
-      props.put("hibernate.show_sql", env.getProperty("hibernate.show_sql"));
-      props.put("hibernate.hbm2ddl.auto", env.getProperty("hibernate.hbm2ddl.auto"));
-      props.put("hibernate.dialect", env.getProperty("hibernate.dialect"));
+      props.put("hibernate.show_sql",
+              env.getProperty("hibernate.show_sql"));
+      props.put("hibernate.hbm2ddl.auto",
+              env.getProperty("hibernate.hbm2ddl.auto"));
 
       factoryBean.setHibernateProperties(props);
       factoryBean.setAnnotatedClasses(User.class, Car.class);
@@ -53,8 +54,10 @@ public class AppConfig {
 
    @Bean
    public HibernateTransactionManager getTransactionManager() {
-      HibernateTransactionManager transactionManager = new HibernateTransactionManager();
-      transactionManager.setSessionFactory(getSessionFactory().getObject());
+      HibernateTransactionManager transactionManager =
+              new HibernateTransactionManager();
+      transactionManager.setSessionFactory(getSessionFactory()
+              .getObject());
       return transactionManager;
    }
 }
