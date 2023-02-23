@@ -17,7 +17,7 @@ public class UserDaoImp implements UserDao {
    private SessionFactory sessionFactory;
 
    @Override
-   public void add(User user) {
+   public void addUser(User user) {
       sessionFactory.getCurrentSession().save(user);
    }
 
@@ -29,11 +29,11 @@ public class UserDaoImp implements UserDao {
    }
 
    @Override
-   public User getUserByCar(Car car) {
+   public User getUserByCar(String model, int series) {
       Query q = sessionFactory.getCurrentSession()
               .createQuery("from User u join fetch u.car where u.car.model = ?1 and u.car.series = ?2");
-      q.setParameter(1, car.getModel());
-      q.setParameter(2, car.getSeries());
+      q.setParameter(1, model);
+      q.setParameter(2, series);
       return (User) q.getSingleResult();
    }
 

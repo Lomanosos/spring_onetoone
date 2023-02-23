@@ -13,17 +13,15 @@ public class MainApp {
    public static void main(String[] args) throws SQLException {
       AnnotationConfigApplicationContext context = 
             new AnnotationConfigApplicationContext(AppConfig.class);
-      System.out.println("контекст создан");
       UserService userService = context.getBean(UserService.class);
 
-      userService.add(new User("User1", "Lastname1", "user1@mail.ru", new Car("bmw", 8)));
+      userService.addUser(new User("petr", "petr", "petrovich@internet.ru", new Car("bmw", 9)));
+      userService.addUser(new User("rebro", "adam", "jesus@internet.eu", new Car("tree", 0)));
+      userService.addUser(new User("roberto", "mafiozi", "money@internet.eu", new Car("ferari", 777)));
 
-      System.out.println("бин получили");
 
-      userService.add(new User("Igor", "Rebro",
-              "luckyman23.02.1999@internet.ru", new Car("Priora", 889)));
+      //список пользов.
       List<User> users = userService.listUsers();
-      System.out.println("получили лист усеров");
       for (User user : users) {
          System.out.println("Id = "+user.getId());
          System.out.println("First Name = "+user.getFirstName());
@@ -33,8 +31,8 @@ public class MainApp {
          System.out.println("Car series = " + user.getCar().getSeries());
          System.out.println();
       }
-
-      System.out.println(userService.getUserByCar(new Car("Priora", 889)));
+      //работа метода
+      System.out.println(userService.getUserByCar("Priora", 889));
 
       context.close();
    }
