@@ -13,18 +13,19 @@ public class MainApp {
    public static void main(String[] args) throws SQLException {
       AnnotationConfigApplicationContext context = 
             new AnnotationConfigApplicationContext(AppConfig.class);
-
+      System.out.println("контекст создан");
       UserService userService = context.getBean(UserService.class);
 
       //userService.add(new User("User1", "Lastname1", "user1@mail.ru"));
       //userService.add(new User("User2", "Lastname2", "user2@mail.ru"));
       //userService.add(new User("User3", "Lastname3", "user3@mail.ru"));
       //userService.add(new User("User4", "Lastname4", "user4@mail.ru"));
+      System.out.println("бин получили");
 
-      User user1 = new User("Igor", "Rebro",
-              "luckyman23.02.1999@internet.ru", new Car("Priora", 889));
-
+      userService.add(new User("Igor", "Rebro",
+              "luckyman23.02.1999@internet.ru", new Car("Priora", 889)));
       List<User> users = userService.listUsers();
+      System.out.println("получили лист усеров");
       for (User user : users) {
          System.out.println("Id = "+user.getId());
          System.out.println("First Name = "+user.getFirstName());
