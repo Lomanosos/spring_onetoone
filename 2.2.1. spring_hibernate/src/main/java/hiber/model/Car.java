@@ -5,8 +5,13 @@ import javax.persistence.*;
 @Entity
 @Table(name = "cars")
 public class Car {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
+    @Column(name = "model")
     private String model;
+    @Column(name = "series")
     private int series;
 
     public Car() {
@@ -16,19 +21,17 @@ public class Car {
         this.series = s;
     }
 
-    @Column(name = "model")
+
     public String getModel() {
         return model;
     }
 
-    @Column(name = "series")
+
     public int getSeries() {
         return series;
     }
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+
     public Long getId() {
         return id;
     }
