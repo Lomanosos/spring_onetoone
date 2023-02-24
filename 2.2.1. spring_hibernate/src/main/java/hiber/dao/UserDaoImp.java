@@ -13,8 +13,12 @@ import java.util.List;
 @Repository
 public class UserDaoImp implements UserDao {
 
-   @Autowired
+
    private SessionFactory sessionFactory;
+   @Autowired
+   private UserDaoImp(SessionFactory sf) {
+      sessionFactory = sf;
+   }
 
    @Override
    public void addUser(User user) {
