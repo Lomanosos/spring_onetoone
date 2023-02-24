@@ -15,9 +15,9 @@ public class MainApp {
             new AnnotationConfigApplicationContext(AppConfig.class);
       UserService userService = context.getBean(UserService.class);
 
-      userService.addUser(new User("petr", "petr", "petrovich@internet.ru", new Car("bmw", 9)));
-      userService.addUser(new User("rebro", "adam", "jesus@internet.eu", new Car("tree", 0)));
-      userService.addUser(new User("roberto", "mafiozi", "money@internet.eu", new Car("ferari", 777)));
+      //userService.addUser(new User("petr", "petr", "petrovich@internet.ru", new Car("bmw", 9)));
+      //userService.addUser(new User("rebro", "adam", "jesus@internet.eu", new Car("tree", 0)));
+      //userService.addUser(new User("roberto", "mafiozi", "money@internet.eu", new Car("ferari", 777)));
 
 
       //список пользов.
