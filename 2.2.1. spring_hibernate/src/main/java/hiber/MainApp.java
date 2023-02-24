@@ -32,7 +32,7 @@ public class MainApp {
          System.out.println();
       }
       //работа метода
-      System.out.println(userService.getUserByCar("Priora", 889));
+      System.out.println(userService.getUserByCar("bmw", 9));
 
       context.close();
    }
